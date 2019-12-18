@@ -1,7 +1,7 @@
 include ../../Make.defines
 
 PROGS =	tcpserv01 tcpserv02 tcpserv03 \
-		tcpcli01 tcpcli03 tcpcli04
+		tcpcli01 tcpcli03 tcpcli04 tcpcli05 tcpcli06 tcpcli07
 
 LIBPATH = ../${LIBS}
 
@@ -35,6 +35,12 @@ tcpcli04: tcpcli04.o
 
 tcpcli05: tcpcli05.o str_cli09.o
 		${CC} ${CFLAGS} -o $@ tcpcli05.o str_cli09.o ${LIBPATH}
+
+tcpcli06: tcpcli06.o str_cliselect.o
+		${CC} ${CFLAGS} -o $@ tcpcli06.o str_cliselect.o ${LIBPATH}
+
+tcpcli07: tcpcli07.o str_select02.o
+		${CC} ${CFLAGS} -o $@ tcpcli07.o str_select02.o ${LIBPATH}
 
 clean:
 		rm -f ${PROGS} ${CLEANFILES}
