@@ -1,7 +1,7 @@
 include ../../Make.defines
 
 PROGS =	tcpserv01 tcpserv02 tcpserv03 \
-		tcpcli01 tcpcli03 tcpcli04 tcpcli05 tcpcli06 tcpcli07
+		tcpcli01 tcpcli03 tcpcli04 tcpcli05 tcpcli06 tcpcli07 tcpservselect tcpservpoll
 
 LIBPATH = ../${LIBS}
 
@@ -23,6 +23,12 @@ tcpserv08:	tcpserv08.o str_echo08.o sigchildwait.o
 tcpserv09:	tcpserv09.o str_echo09.o sigchildwait.o
 		${CC} ${CFLAGS} -o $@ tcpserv09.o str_echo09.o sigchildwait.o \
 			${LIBPATH}
+
+tcpservselect:	tcpservselect01.o
+		${CC} ${CFLAGS} -o $@ tcpservselect01.o ${LIBPATH}
+
+tcpservpoll:	tcpservpoll01.o
+		${CC} ${CFLAGS} -o $@ tcpservpoll01.o ${LIBPATH}
 
 tcpcli01: tcpcli01.o
 		${CC} ${CFLAGS} -o $@ tcpcli01.o ${LIBPATH}
